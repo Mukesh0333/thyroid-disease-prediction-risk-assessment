@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thyroid Disease Prediction & Risk Assessment</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1>Thyroid Disease Prediction</h1>
+                <p>Machine Learning Based Risk Assessment System</p>
+            </div>
+
+            <div class="api-status">
+                <span class="status-dot"></span>
+                API Connected
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- INPUT SECTION -->
+        <section class="card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Patient Data</h2>
+                    <p>Enter the clinical feature values for prediction</p>
+                </div>
+            </div>
+
+            <form id="predictionForm">
+
+                <div class="input-grid">
+
+                    <div class="input-group">
+                        <label>Feature 1</label>
+                        <input type="number" step="any" id="feature_1" value="0.73">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 2</label>
+                        <input type="number" step="any" id="feature_2" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 3</label>
+                        <input type="number" step="any" id="feature_3" value="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 4</label>
+                        <input type="number" step="any" id="feature_4" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 5</label>
+                        <input type="number" step="any" id="feature_5" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 6</label>
+                        <input type="number" step="any" id="feature_6" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 7</label>
+                        <input type="number" step="any" id="feature_7" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 8</label>
+                        <input type="number" step="any" id="feature_8" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 9</label>
+                        <input type="number" step="any" id="feature_9" value="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 10</label>
+                        <input type="number" step="any" id="feature_10" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 11</label>
+                        <input type="number" step="any" id="feature_11" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 12</label>
+                        <input type="number" step="any" id="feature_12" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 13</label>
+                        <input type="number" step="any" id="feature_13" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 14</label>
+                        <input type="number" step="any" id="feature_14" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 15</label>
+                        <input type="number" step="any" id="feature_15" value="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 16</label>
+                        <input type="number" step="any" id="feature_16" value="0.00060">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 17</label>
+                        <input type="number" step="any" id="feature_17" value="0.015">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 18</label>
+                        <input type="number" step="any" id="feature_18" value="0.120">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 19</label>
+                        <input type="number" step="any" id="feature_19" value="0.082">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 20</label>
+                        <input type="number" step="any" id="feature_20" value="0.146">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Feature 21</label>
+                        <input type="number" step="any" id="feature_21" value="3">
+                    </div>
+
+                </div>
+
+                <button type="submit" class="predict-btn">
+                    <span>Predict Thyroid Risk</span>
+                </button>
+
+            </form>
+        </section>
+
+
+        <!-- LOADING -->
+        <div id="loading" class="loading hidden">
+            <div class="loader"></div>
+            <span>Analyzing patient data...</span>
+        </div>
+
+
+        <!-- RESULTS -->
+        <section id="results" class="results hidden">
+
+            <!-- TOP RESULT CARDS -->
+            <div class="result-grid">
+
+                <div class="result-card prediction-result">
+                    <div class="result-icon">🩺</div>
+                    <div>
+                        <p class="result-label">PREDICTION</p>
+                        <h2 id="prediction">--</h2>
+                    </div>
+                </div>
+
+
+                <div class="result-card confidence-result">
+                    <div class="result-icon">🎯</div>
+                    <div>
+                        <p class="result-label">CONFIDENCE</p>
+                        <h2 id="confidence">--</h2>
+                    </div>
+                </div>
+
+
+                <div class="result-card risk-result">
+                    <div class="result-icon">⚠️</div>
+                    <div>
+                        <p class="result-label">RISK LEVEL</p>
+                        <h2 id="riskLevel">--</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- PROBABILITIES -->
+            <div class="card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Prediction Probabilities</h2>
+                        <p>Probability distribution across thyroid conditions</p>
+                    </div>
+                </div>
+
+                <div id="probabilities" class="probability-container"></div>
+
+            </div>
+
+
+            <!-- EXPLAINABILITY -->
+            <div class="card explain-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Explainable AI Analysis</h2>
+                        <p>SHAP-based feature contribution analysis</p>
+                    </div>
+
+                    <button id="explainBtn" class="explain-btn">
+                        Explain Prediction
+                    </button>
+                </div>
+
+
+                <div id="explainLoading" class="explain-loading hidden">
+                    Calculating feature contributions...
+                </div>
+
+
+                <div id="shapResults" class="shap-container"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ERROR -->
+        <div id="errorBox" class="error-box hidden"></div>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Thyroid Disease Prediction & Risk Assessment System
+        </p>
+        <span>Powered by Machine Learning & Explainable AI</span>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
